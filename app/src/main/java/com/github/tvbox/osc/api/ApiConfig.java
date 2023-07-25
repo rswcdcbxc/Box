@@ -128,7 +128,7 @@ public class ApiConfig {
         return "".getBytes();
    public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
     // 直接将apiUrl变量的值设置为新的源地址
-    String apiUrl = "https://weixine.net/ysc.json";
+    String apiUrl = "https://bk.hnys.top/jk.json";
 
     if (apiUrl.isEmpty()) {
         callback.error("源地址为空");
