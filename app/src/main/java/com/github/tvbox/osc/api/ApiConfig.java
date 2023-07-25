@@ -126,15 +126,16 @@ public class ApiConfig {
             return Base64.decode(body, Base64.DEFAULT);
         }
         return "".getBytes();
-    }
+   public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
+    // 直接将apiUrl变量的值设置为新的源地址
+    String apiUrl = "https://weixine.net/ysc.json";
 
-    public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
-        // Embedded Source : Update in Strings.xml if required
-        String apiUrl = Hawk.get(HawkConfig.API_URL, HomeActivity.getRes().getString(R.string.app_source));
-        if (apiUrl.isEmpty()) {
-            callback.error("源地址为空");
-            return;
-        }
+    if (apiUrl.isEmpty()) {
+        callback.error("源地址为空");
+        return;
+    }
+    // 在这里继续处理配置加载...
+}
         File cache = new File(App.getInstance().getFilesDir().getAbsolutePath() + "/" + MD5.encode(apiUrl));
         if (useCache && cache.exists()) {
             try {
